@@ -73,6 +73,33 @@ async function existeCategoria(id) {
     return categorias.length > 0;
 }
 
+ // Buscar medicamentos por nombre
+router.get("/buscar", async (req, res) => {
+    try {
+        const busqueda = String(req.query.nombre || "").trim();
+
+        const [productos] = await db.query(
+            `SELECT p.id, p.nombre, p.principio_activo, p.concentracion,
+                    p.presentacion, p.precio_venta, p.stock_minimo,
+                    p.categoria_id, p.estado, p.fecha_registro,
+                    c.nombre AS categoria_nombre
+             FROM productos p
+             JOIN categorias c ON c.id = p.categoria_id
+             WHERE p.nombre LIKE ?
+             ORDER BY p.nombre ASC`,
+            [`%${busqueda}%`]
+        );
+
+        return res.json(productos);
+    } catch (error) {
+        console.error("Error al buscar medicamentos:", error.message);
+
+        return res.status(500).json({
+            mensaje: "Error al buscar medicamentos"
+        });
+    }
+});
+
 //Listar medicamentos
 router.get("/", async (req, res) => {
     try {
@@ -90,6 +117,7 @@ router.get("/", async (req, res) => {
         return res.status(500).json({ mensaje: "Error al consultar medicamentos" });
     }
 });
+
 
 //Agregar medicamento
 router.post("/", async (req, res) => {
