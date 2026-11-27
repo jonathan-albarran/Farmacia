@@ -30,6 +30,8 @@ export default function Categorias() {
   const [eliminandoId, setEliminandoId] = useState(null);
   const [notificacion, setNotificacion] = useState(null);
 
+  // Obtiene las categorías del servidor, valida la respuesta,
+// Guarda los datos y muestra un error si ocurre algún problema.
   async function cargarCategorias() {
     try {
       const datos = await apiRequest("/categorias");
