@@ -7,6 +7,8 @@ import "./Dashboard.css";
 const DIAS_PARA_CADUCAR = 30;
 const MAX_FILAS = 6;
 
+// Formatea las fechas y horas para mostrarlas de manera legible,
+// Utilizando un mensaje alternativo cuando la fecha no está disponible.
 function mostrarFecha(fecha) {
   return formatearFecha(fecha, "Fecha no disponible");
 }
