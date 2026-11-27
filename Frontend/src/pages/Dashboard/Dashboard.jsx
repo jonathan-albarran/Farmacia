@@ -206,7 +206,7 @@ export default function Dashboard() {
           <div className="dashboard-card-header">
             <h2 id="movimientos-title">Movimientos recientes</h2>
           </div>
-          <p className="dashboard-ayuda">Últimas entradas y salidas registradas.</p>
+          <p className="dashboard-ayuda">Últimas salidas registradas.</p>
 
           {cargando ? (
             <p className="dashboard-mensaje">Cargando movimientos...</p>
