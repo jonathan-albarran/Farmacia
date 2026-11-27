@@ -37,6 +37,8 @@ const filasProducto = [
   ]
 ];
 
+// Gestiona los productos y categorías, controla los permisos
+// Del usuario y carga los datos desde el servidor.
 export default function Productos() {
   const rolUsuario = normalizarRol(obtenerUsuarioActual()?.rol);
   const puedeEliminar = ["administrador", "dueno"].includes(rolUsuario);
