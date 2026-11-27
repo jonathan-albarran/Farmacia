@@ -201,7 +201,7 @@ export default function Categorias() {
             value={formulario.descripcion}
             onChange={handleChange}
             rows={5}
-            placeholder="Descripción opcional de la categoría"
+            placeholder=" Descripción opcional de la categoría "
           />
         </CrudForm>
 
