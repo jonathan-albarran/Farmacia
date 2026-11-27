@@ -294,7 +294,7 @@ export default function Inventario() {
                 type="search"
                 value={busqueda}
                 onChange={(event) => setBusqueda(event.target.value)}
-                placeholder="Número de lote, código o medicamento"
+                placeholder=" Número de lote, código o medicamento "
               />
             </div>
           }
