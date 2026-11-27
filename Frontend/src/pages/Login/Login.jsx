@@ -11,6 +11,8 @@ import {
 } from "../../utils/offlineAuth";
 import { guardarUsuarioActual } from "../../utils/session";
 
+// Precarga los datos principales del sistema para facilitar
+// Su consulta sin conexión a internet.
 async function precargarDatosOffline(usuario) {
   const rutas = [
     "/productos",
